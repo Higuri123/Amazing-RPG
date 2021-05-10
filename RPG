@@ -1,0 +1,102 @@
+from random import random
+
+
+def game():
+    answer= input('The world needs your help. Are you in? (y/n)')
+
+    if answer.lower()=='y':
+        print('Excellent')
+        start=True
+        inventory=[]
+
+    else:
+        print('The world is doomed..')
+
+    if start==True:
+        print('Mysterious Stranger: Hello there.')
+        print('Welcome to Midnia.')
+        print('It is a sprawling city full of opportunity.')
+        choice=input('Do you want some help?(y/n)')
+
+    if choice.lower()=='y':
+        choiceY1=True
+        print('Perfect.')
+        print('You could be the one to save the world...')
+        print('Take this, chosen one.')
+        print('You have been given a Longsword!')
+        print('And some protection.')
+        print('You have been given a wooden shield!')
+        inventory.append('Longsword')
+        inventory.append('wooden shield')
+
+    else:
+        choiceY1=False
+        print('That is okay')
+        print('Saving the world can be overwhelming..')
+        print('But you cannot leave empty handed.')
+        print('You receive 30 G!')
+        inventory.append('30G')
+
+    if choiceY1==False and '30G' in inventory:
+        print('You see a shop')
+        decide=input('do you go in?(y/n)')
+
+    if choice.lower()== 'y':
+        print('You go inside to see a shopkeeper')
+        print('Welcome welcome! Browse to your content stranger')
+        print('Each piece is 10 G each. I can buy equipement here')
+        choice=input('Longsword is 10G, do I buy?(y/n)')
+
+    if choice.lower()== 'y':
+        print('You bought the Longsword!')
+        inventory.append('Longsword')
+
+    if choice.lower()== 'n':
+        print('Very well then, what else can I help you with?')
+        print('This shield is high quality')
+        choice=input('Do I buy the Leather SHield (y/n)')
+
+    if choice.lower()== 'y':
+          print('You bought the leather shield! Sturdier than it looks huh?')
+          inventory.append('Leather Shield')
+    if choice.lower()=='n':
+        print('Very well then...')
+    elif choiceY1==True:
+        print('Okay, now that you are geared up, time to fight some rats!')
+        print('What a coincidence, here is some now!')
+        approach=input('Do you approach the rats?(y/n)')
+    if approach.lower()=='n':
+        print('Fine, let us run away')
+        print('You have run away!')
+        print('Game over')
+    if approach.lower()=='y':
+        print('---You are in a fight! what will you do?')
+        print('A: punch him? success: 85%')
+        print('B: kick him? success: 35%')
+        print('Use the Longsword? success: 100%')
+        decision=input('What will you do: A, B, C?')
+
+        minPoint=1
+        maxPoint=100
+
+        ChA= (random.randint(minPoint,maxPoint))*.85
+        ChB=(random.randint(minPoint,maxPoint))*.35
+        ChC=(random.randint(minPoint,maxPoint))*.100
+
+    if decision.upper()=='A' and ChA>25:
+        print('You punched him')
+        print('He is knocked out, now you can attack them!')
+
+    elif decision.upper()=='B' and ChB>25:
+        print('You kicked the rats')
+        print('Good job')
+
+    elif decision.upper()=='C' and ChC>25 and 'Longsword' in inventory:
+        print('You used your Longsword')
+        print('You bisected the rats!')
+
+    else:
+        print('You missed, and got rabies')
+        print('You died from rabies')
+
+game()
