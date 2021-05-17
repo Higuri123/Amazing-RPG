@@ -139,6 +139,9 @@ def game(maxPoint=100, minPoint=1):
     elif decision.upper()=='C' and ChC>25 and 'Longsword' in inventory:
         print('You used your Longsword')
         print('You bisected the rats!')
+        print('You have defeated the rats! You gain 20G and 100exp')
+        print('You have leveled up!')
+        print('You are now level 2')
 
     else:
         print('You missed, and got rabies')
