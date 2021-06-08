@@ -11,7 +11,7 @@ def game(maxPoint=100, minPoint=1):
 
     else:
         print('The world is doomed..')
-
+        print('It is the end of us all...')
     if start==True:
         print('Mysterious Stranger: Hello there.')
         print('Welcome to Midnia.')
@@ -34,14 +34,15 @@ def game(maxPoint=100, minPoint=1):
         print('That is okay')
         print('Saving the world can be overwhelming..')
         print('But you cannot leave empty handed.')
-        print('You receive 30 G!')
-        inventory.append('30G')
+        print('You receive 50 G!')
+        inventory.append('50G')
+        inv = {'Gold':50}
 
-    if choiceY1==False and '30G' in inventory:
+    if choiceY1==False and '50G' in inventory:
         print('You see a shop')
         choice=input('do you go in?(y/n)')
 
-    if choice.lower()== 'y':
+    if choice.lower()== 'y' and '30G' in inventory:
         print('You go inside to see a shopkeeper')
         print('Welcome welcome! Browse to your content stranger')
         print('Each piece is 10 G each. I can buy equipement here')
@@ -49,13 +50,16 @@ def game(maxPoint=100, minPoint=1):
 
     if choice.lower()== 'y':
         print('You bought the Longsword!')
+        print('You have 40G left')
         inventory.append('Longsword')
 
         print('Looks like I can also buy a shield here..')
+        print('You have 30G left')
         choice=input('Leather Shield is 10G, do I buy? (y/n)')
 
     if choice.lower()== 'y':
           print('You bought the leather shield! Sturdier than it looks huh?')
+          print('You have 30G left')
           inventory.append('Leather Shield')
 
           print('Looks like I can buy some armor here..')
@@ -63,7 +67,10 @@ def game(maxPoint=100, minPoint=1):
 
     if choice.lower()== 'y':
         print('You bought the Leather armor! Simple, yet durable')
+        print('You have 20G left')
         inventory.append('Leather Armor')
+
+    
 
         print('Okay, looks like I am all geared up')
         print('Stranger: Ah, there you are hero. all geared up I see.')
@@ -80,7 +87,7 @@ def game(maxPoint=100, minPoint=1):
             print('Then let us begin! what will you do?')
             print('A: punch him? success: 85%')
             print('B: kick him? success: 35%')
-            print('Use the Longsword? success: 100%')
+            print('C: Use the Longsword? success: 100%')
             choice=input('What will you do: A, B, C?')
 
             ChA= (random.randint(minPoint,maxPoint)) *.85
