@@ -1,6 +1,19 @@
 import random
 
+health = 80.0
+maxHealth = 200
+healthDashes = 20
+def do_health():
+    dashConvert = int(maxHealth/healthDashes)
+    currentDashes = int(health/dashConvert)
+    remainingHealth = healthDashes - currentDashes
 
+    healthDisplay = '-' * currentDashes
+    remainingDisplay = ' ' * remainingHealth
+    percent = str(int((health/maxHealth)*100)) + "%"
+
+    print("|" + healthDisplay + remainingDisplay + "|")
+    print("      " + percent)
 def game(maxPoint=100, minPoint=1):
     answer= input('The world needs your help. Are you in? (y/n)')
 
@@ -153,7 +166,6 @@ def game(maxPoint=100, minPoint=1):
     else:
         print('You missed, and got rabies')
         print('You died from rabies')
-
-        'Game over'
+        print('Game over')
 
 game()
